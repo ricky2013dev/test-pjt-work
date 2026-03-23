@@ -1,0 +1,14 @@
+node_modules
+dist
+build
+coverage
+.env
+.DS_Store
+.idea
+.vscode         
+
+# Ignore log files
+logs
+ricky-doc  
+docs
+.claude

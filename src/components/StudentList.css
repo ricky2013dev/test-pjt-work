@@ -1,0 +1,140 @@
+.sl-state {
+  padding: 32px 0;
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.sl-state--error {
+  color: #dc2626;
+}
+
+.sl-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sl-section {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+}
+
+.sl-section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.sl-section-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Count badges */
+.sl-badge {
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sl-badge--pending {
+  background: #fef9c3;
+  color: #92400e;
+}
+
+.sl-badge--approved {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+/* Action buttons */
+.sl-btn-approve {
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #16a34a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sl-btn-approve:hover {
+  background: #15803d;
+}
+
+.sl-btn-reject {
+  padding: 4px 12px;
+  border-radius: 6px;
+  border: none;
+  background: #dc2626;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sl-btn-reject:hover {
+  background: #b91c1c;
+}
+
+.sl-actions {
+  display: flex;
+  gap: 6px;
+}
+
+/* Status badge */
+.sl-status-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.sl-status-badge--approved {
+  background: #dcfce7;
+  color: #16a34a;
+}
+
+.sl-status-badge--pending {
+  background: #fef9c3;
+  color: #ca8a04;
+}
+
+/* Grade badge */
+.sl-grade-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sl-grade-badge--A {
+  background: #bfdbfe;
+  color: #1d4ed8;
+}
+
+.sl-grade-badge--B {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.sl-grade-badge--C {
+  background: #fde68a;
+  color: #92400e;
+}
+
+.sl-grade-badge--default {
+  background: #f3f4f6;
+  color: #374151;
+}

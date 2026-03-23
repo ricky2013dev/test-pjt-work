@@ -1,0 +1,1 @@
+{"root":["./src/app.tsx","./src/main.tsx","./src/api/mockapi.ts","./src/components/datatable.tsx","./src/components/studentlist.tsx","./src/containers/studentlistcontainer.tsx","./src/data/mockapprovedstudents.ts","./src/data/mockpendingstudents.ts","./src/types/student.ts"],"version":"5.9.3"}
