@@ -24,36 +24,6 @@
   flex-wrap: wrap;
 }
 
-.slc-summary-card--clickable {
-  cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-}
-
-.slc-summary-card--clickable:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-}
-
-.slc-summary-card--clickable:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-.slc-summary-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 12px 24px;
-  border-radius: 10px;
-  min-width: 90px;
-}
-
-.slc-summary-count {
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1.1;
-}
-
 .slc-state {
   display: flex;
   justify-content: center;
@@ -66,10 +36,4 @@
 
 .slc-state--error {
   color: #dc2626;
-}
-
-.slc-summary-label {
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: 2px;
 }
