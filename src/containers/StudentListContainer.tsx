@@ -1,5 +1,7 @@
-import React from 'react';
-import { useStudentManagement } from '../hooks/useStudentManagement';
+import React, { useState, useCallback } from 'react';
+import { ApprovedStudent, PendingStudent } from '../types/student';
+import mockApprovedStudents from '../data/mockApprovedStudents';
+import mockPendingStudents from '../data/mockPendingStudents';
 import { StudentList } from '../components/StudentList';
 import { SummaryCard } from '../components/SummaryCard';
 import './StudentListContainer.css';
@@ -9,16 +11,26 @@ const scrollToSection = (id: string) => {
 };
 
 export const StudentListContainer: React.FC = () => {
-  const {
-    approvedStudents,
-    pendingStudents,
-    approvedLoading,
-    pendingLoading,
-    approvedError,
-    pendingError,
-    handleApprove,
-    handleReject,
-  } = useStudentManagement();
+  const [approvedStudents, setApprovedStudents] = useState<ApprovedStudent[]>(mockApprovedStudents);
+  const [pendingStudents,  setPendingStudents]  = useState<PendingStudent[]>(mockPendingStudents);
+
+  const handleApprove = useCallback((target: PendingStudent) => {
+    const newStudent: ApprovedStudent = {
+      id:           `S${Date.now()}`,
+      name:         target.studentName,
+      email:        target.studentEmail,
+      grade:        target.grade,
+      major:        target.major,
+      requestDate:  target.requestDate,
+      approvedDate: new Date().toISOString().slice(0, 10),
+    };
+    setApprovedStudents((prev) => [...prev, newStudent]);
+    setPendingStudents( (prev) => prev.filter((s) => s.requestId !== target.requestId));
+  }, []);
+
+  const handleReject = useCallback((target: PendingStudent) => {
+    setPendingStudents((prev) => prev.filter((s) => s.requestId !== target.requestId));
+  }, []);
 
   return (
     <div className="slc-page">
@@ -33,11 +45,11 @@ export const StudentListContainer: React.FC = () => {
 
       <StudentList
         pendingStudents={pendingStudents}
-        pendingLoading={pendingLoading}
-        pendingError={pendingError}
+        pendingLoading={false}
+        pendingError={null}
         approvedStudents={approvedStudents}
-        approvedLoading={approvedLoading}
-        approvedError={approvedError}
+        approvedLoading={false}
+        approvedError={null}
         onApprove={handleApprove}
         onReject={handleReject}
       />

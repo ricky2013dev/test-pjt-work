@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { SummaryCard } from './SummaryCard';
 
@@ -59,7 +58,7 @@ describe('SummaryCard', () => {
     });
 
     it('calls onClick when clicked', () => {
-      const onClick = vi.fn();
+      const onClick = jest.fn();
       render(<SummaryCard label="Pending" count={8} color="#fef9c3" textColor="#92400e" onClick={onClick} />);
       fireEvent.click(screen.getByRole('button'));
       expect(onClick).toHaveBeenCalledTimes(1);

@@ -1,22 +1,22 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { apiRequest } from './mockApi';
 import mockApprovedStudents from '../data/mockApprovedStudents';
 import mockPendingStudents from '../data/mockPendingStudents';
 
 // Skip the 400ms delay in tests
-vi.mock('./mockApi', async (importOriginal) => {
-  const mod = await importOriginal<typeof import('./mockApi')>();
+jest.mock('./mockApi', () => {
+  const mockApproved = require('../data/mockApprovedStudents').default;
+  const mockPending = require('../data/mockPendingStudents').default;
   return {
-    ...mod,
-    apiRequest: vi.fn(async (endpoint: string) => {
-      if (endpoint === 'students')          return { data: mockApprovedStudents, status: 200 };
-      if (endpoint === 'students/requests') return { data: mockPendingStudents,  status: 200 };
+    ...jest.requireActual('./mockApi'),
+    apiRequest: jest.fn(async (endpoint: string) => {
+      if (endpoint === 'students')          return { data: mockApproved, status: 200 };
+      if (endpoint === 'students/requests') return { data: mockPending,  status: 200 };
     }),
   };
 });
 
 describe('apiRequest', () => {
-  beforeEach(() => vi.clearAllMocks());
+  beforeEach(() => jest.clearAllMocks());
 
   describe('GET students', () => {
     it('returns status 200', async () => {

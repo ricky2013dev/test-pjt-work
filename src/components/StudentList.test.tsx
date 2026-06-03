@@ -1,4 +1,3 @@
-import { describe, it, expect, vi } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { StudentList } from './StudentList';
 import { ApprovedStudent, PendingStudent } from '../types/student';
@@ -112,7 +111,7 @@ describe('StudentList', () => {
 
   describe('Actions', () => {
     it('calls onApprove with the correct student when Approve clicked', () => {
-      const onApprove = vi.fn();
+      const onApprove = jest.fn();
       render(
         <StudentList
           pendingStudents={pendingStudents}
@@ -125,7 +124,7 @@ describe('StudentList', () => {
     });
 
     it('calls onReject with the correct student when Reject clicked', () => {
-      const onReject = vi.fn();
+      const onReject = jest.fn();
       render(
         <StudentList
           pendingStudents={pendingStudents}

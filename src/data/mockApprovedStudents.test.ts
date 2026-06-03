@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest';
 import mockApprovedStudents from './mockApprovedStudents';
 
 describe('mockApprovedStudents', () => {
